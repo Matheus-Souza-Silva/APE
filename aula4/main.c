@@ -58,4 +58,5 @@ int main() {
 			
 	---Observações---
 	"&" usado para dizer o endereço da variável na memória
+ 	Toda vez que trabalhar com string e char tem que ficar de olho no buffer, sempre usar fflush(stdin) para limpar o buffer ou colocar espaço antes do especificador do scanf
 */
