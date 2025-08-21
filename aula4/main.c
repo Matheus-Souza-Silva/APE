@@ -19,6 +19,7 @@ int main() {
 	scanf("%d",&idade);
 	
 	printf("Insira seu status (a ou i): ");
+	fflush(stdin);
 	scanf(" %c",&status);
 	
 	printf("Insira sua altura: ");
@@ -42,7 +43,7 @@ int main() {
 }
 
 /*
-	---Exemplos de variáveis para cada tipo--- 
+	---Exemplos de variÃ¡veis para cada tipo--- 
 		int idade
 		char estados
 		float altura
@@ -50,11 +51,11 @@ int main() {
 	
 	---String---
 		char *nome* [];
-		Não tem um tipo primitivo string
+		NÃ£o tem um tipo primitivo string
 		
 		--Especificador de string--
 			%s
 			
-	---Observações---
-	"&" usado para dizer o endereço da variável na memória
+	---ObservaÃ§Ãµes---
+	"&" usado para dizer o endereÃ§o da variÃ¡vel na memÃ³ria
 */
