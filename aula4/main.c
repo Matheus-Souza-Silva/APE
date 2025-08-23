@@ -43,7 +43,7 @@ int main() {
 }
 
 /*
-	---Exemplos de vari·veis para cada tipo--- 
+	---Exemplos de vari√°veis para cada tipo--- 
 		int idade
 		char estados
 		float altura
@@ -51,12 +51,18 @@ int main() {
 	
 	---String---
 		char *nome* [];
-		N„o tem um tipo primitivo string
+		N√£o tem um tipo primitivo string
 		
 		--Especificador de string--
 			%s
 			
+<<<<<<< HEAD
 	---ObservaÁıes---
 	"&" usado para dizer o endereÁo da vari·vel na memÛria
 	Toda vez que trabalhar com string e char tem que ficar de olho no buffer, sempre usar fflush(stdin) para limpar o buffer ou colocar espaÁo antes do especificador do scanf.
+=======
+	---Observa√ß√µes---
+	"&" usado para dizer o endere√ßo da vari√°vel na mem√≥ria
+ 	Toda vez que trabalhar com string e char tem que ficar de olho no buffer, sempre usar fflush(stdin) para limpar o buffer ou colocar espa√ßo antes do especificador do scanf
+>>>>>>> b088f4068ed24e890fcc5892704ba0ef9ceb57a4
 */
