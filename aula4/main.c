@@ -19,6 +19,7 @@ int main() {
 	scanf("%d",&idade);
 	
 	printf("Insira seu status (a ou i): ");
+	fflush(stdin);
 	scanf(" %c",&status);
 	
 	printf("Insira sua altura: ");
@@ -57,4 +58,5 @@ int main() {
 			
 	---Observações---
 	"&" usado para dizer o endereço da variável na memória
+	Toda vez que trabalhar com string e char tem que ficar de olho no buffer, sempre usar fflush(stdin) para limpar o buffer ou colocar espaço antes do especificador do scanf.
 */
