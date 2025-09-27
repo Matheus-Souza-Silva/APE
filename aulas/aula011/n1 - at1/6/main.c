@@ -1,17 +1,32 @@
 #include <stdio.h>
 
 int main() {
-	float emprestimo, liquido;
+	float bruto, liquido;
 	int meses = 0;
 	
-	printf("Insira Emprestimo: ");
-	scanf("%f",&emprestimo);
+	printf("--------------------------------\n");
+	printf("       E M P R E S T I M O      \n");
+	printf("--------------------------------\n");
+	
+	printf("Insira o valor do Emprestimo: ");
+	scanf("%f",&bruto);
 	
 	printf("Insira a quantidade de meses: ");
 	scanf("%d",&meses);
 	
-	liquido = emprestimo + (emprestimo * meses * 0.05);
+	if(bruto <= 0){
+		printf("ERRO: O valor do emprestimo deve ser positivo\n");
+		return 1;
+	}
 	
-	printf("\nEmprestimo: R$%.2f\nMeses: %d\nValor Liquido: R$%.2f",emprestimo,meses,liquido);
+	if(meses <= 0){
+		printf("ERRO: A quantidade de meses deve ser positivo\n");
+		return 1;
+	}
+	
+	liquido = bruto / (1 + 0.05 * meses);
+	
+	printf("--------------------------------\n");
+	printf("Valor Bruto: R$%.2f\nValor Liquido: R$%.2f\nTaxa de Juros ao mes: 5%\nMeses: %d",bruto,liquido,meses);
 	return 0;
 }

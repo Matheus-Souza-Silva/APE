@@ -3,6 +3,10 @@
 int main() {
 	int idade = 0;
 	
+	printf("--------------------------------\n");
+	printf("     M E I A - E N T R A D A    \n");
+	printf("--------------------------------\n");
+	
 	printf("Insira a idade: ");
 	scanf("%d",&idade);
 	

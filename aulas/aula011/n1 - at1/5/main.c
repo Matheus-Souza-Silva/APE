@@ -1,22 +1,29 @@
 #include <stdio.h>
 
 int main() {
-	int mesAtual = 0, mesAnterior = 0;
-	float consumo, fatura;
+	int mesAtual = 0, mesAnterior = 0, consumo = 0;
+	float fatura;
 	
 	printf("-------------------------------\n");
-	printf(" C o n s u m o  e  F a t u r a\n");
+	printf(" C O N S U M O  E  F A T U R A \n");
 	printf("-------------------------------\n");
 	
-	printf("Insira o Mes Atual: ");
+	printf("Insira a leitura do Mes Atual (em kWh): ");
 	scanf("%d",&mesAtual);
 	
-	printf("Insira o Mes Anterior: ");
+	printf("Insira a leitura do Mes Anterior (em kWh): ");
 	scanf("%d",&mesAnterior);
+	
+	if(mesAtual < mesAnterior){
+		printf("-------------------------------\n");
+        printf("ERRO: A leitura atual nao pode ser menor que a leitura anterior!");
+        return 1;
+	}
 	
 	consumo = mesAtual - mesAnterior;
 	fatura = consumo * 0.75;
 	
-	printf("\nMes Atual: %dkWh\nMes Anterior: %dkWh\nConsumo Mensal: %.2fkWh\nTotal da Fatura: R$%.2f",mesAtual,mesAnterior,consumo,fatura);
+	printf("-------------------------------\n");
+	printf("Mes Atual: %dkWh\nMes Anterior: %dkWh\nConsumo Mensal: %dkWh\nTotal da Fatura: R$%.2f",mesAtual,mesAnterior,consumo,fatura);
 	return 0;
 }

@@ -5,6 +5,10 @@ int main() {
 	int codigo = 0;
 	float valor;
 	
+	printf("--------------------------------\n");
+	printf("     F  A  R  M  A  C  I  A     \n");
+	printf("--------------------------------\n");
+	
 	printf("Entre o nome do medicamento: ");
 	scanf("%s",&medicamento);
 	
@@ -15,6 +19,7 @@ int main() {
 	printf("Entre o valor unitario: ");
 	scanf("%f",&valor);
 	
-	printf("\nMedicamento: %s\nCodigo: %d\nValor Unitario: %.2f",medicamento, codigo, valor);
+	printf("--------------------------------\n");
+	printf("Medicamento: %s\nCodigo: %d\nValor Unitario: %.2f",medicamento, codigo, valor);
 	return 0;
 }

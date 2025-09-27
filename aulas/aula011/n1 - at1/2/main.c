@@ -5,6 +5,10 @@ int main() {
 	int idade = 0;
 	float altura;
 	
+	printf("--------------------------------\n");
+	printf("       C O N S U L T A S        \n");
+	printf("--------------------------------\n");
+	
 	printf("Nome do Paciente: ");
 	scanf("%s",&nome);
 	
@@ -15,6 +19,7 @@ int main() {
 	printf("Altura em metros do Paciente: ");
 	scanf("%f",&altura);
 	
-	printf("\nPaciente %s possui %d anos e altura de %.2fm",nome, idade, altura);
+	printf("--------------------------------\n");
+	printf("Paciente %s possui %d anos e altura de %.2fm",nome, idade, altura);
 	return 0;
 }
