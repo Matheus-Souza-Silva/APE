@@ -148,129 +148,130 @@ int main() {
 	//	
 	//	Ao declarar os vetores utilize o tipo int e inicialize todos os elementos com 0.
 	
-//	int valores[TAM], par[TAM], impar[TAM];
-//	int qtd_par = 0, qtd_impar = 0, i = 0;
-//	int maior_par = 0, menor_par = 0;
-//	int maior_impar = 0, menor_impar = 0;
-//	int soma_par = 0, soma_impar = 0;
-//	float media_par, media_impar;
-//	char sair;
-//	
-//	printf("--------------------------------\n");
-//	printf("    20   V  A  L  O  R  E  S    \n");
-//	printf("--------------------------------\n");
-//	
-//	for(i = 0; i < TAM; i++){
-//		valores[i] = 0;
-//		par[i] = 0;
-//		impar[i] = 0;
-//	}
-//	
-//	i = 0;
-//	do{
-//		printf("Insira o valor %d: ",i+1);
-//		scanf("%d",&valores[i]);
-//		
-//		if(i < TAM - 1){
-//			fflush(stdin);
-//			printf("Deseja sair? (S/N): ");
-//			scanf("%c",&sair);
-//			
-//			if(sair == 'S' || sair == 's'){
-//				i++;
-//				break;
-//			}	
-//		}
-//		
-//		i++;
-//	}while((sair == 'N' || sair == 'n') && i < TAM);
-//	
-//	for(i = 0; i < TAM && valores[i] != 0; i++){
-//		if(valores[i] % 2 == 0){
-//			par[qtd_par] = valores[i];
-//			soma_par += valores[i];
-//			
-//			if(qtd_par == 0){
-//				maior_par = menor_par = valores[i];
-//			} else{
-//				if(valores[i] > maior_par){
-//					maior_par = valores[i];
-//				}
-//				
-//				if(valores[i] < menor_par){
-//					menor_par = valores[i];
-//				}
-//			}
-//			
-//			qtd_par++;
-//		} else{
-//			impar[qtd_impar] = valores[i];
-//			soma_impar += valores[i];
-//			
-//			if(qtd_impar == 0){
-//				maior_impar = menor_impar = valores[i];
-//			} else{
-//				if(valores[i] > maior_impar){
-//					maior_impar = valores[i];
-//				}
-//				
-//				if(valores[i] < menor_impar){
-//					menor_impar = valores[i];
-//				}
-//			}
-//			
-//			qtd_impar++;
-//		}
-//	}
-//	
-//	if(qtd_par > 0){
-//		media_par = (float)soma_par / qtd_par;
-//	}
-//	
-//	if(qtd_impar > 0){
-//		media_impar = (float)soma_impar / qtd_impar;
-//	}
-//	
-//	int acima_media_par = 0, abaixo_media_impar = 0;
-//	
-//	for(i = 0; i < qtd_par; i++){
-//		if(par[i] > media_par){
-//			acima_media_par++;
-//		}
-//	}
-//	
-//	for(i = 0; i < qtd_impar; i++){
-//		if(impar[i] < media_impar){
-//			abaixo_media_impar++;
-//		}
-//	}
-//	
-//	printf("--------------------------------\n");
-//	
-//	printf("Quantidade de pares: %d\n", qtd_par);
-//	printf("Quantidade de impares: %d\n", qtd_impar);
-//	
-//	printf("--------------------------------\n");
-//	
-//	if(qtd_par > 0){
-//		printf("Maior valor par: %d\n", maior_par);
-//		printf("Menor valor par: %d\n", menor_par);
-//		printf("Media dos pares: %.2f\n", media_par);
-//		printf("Quantidade de pares acima da media dos pares: %d\n", acima_media_par);
-//	} else{
-//		printf("Nao ha valores pares para analise\n");
-//	}
-//	
-//	printf("--------------------------------\n");
-//	
-//	if(qtd_impar > 0){
-//		printf("Maior valor impar: %d\n", maior_impar);
-//		printf("Menor valor impar: %d\n", menor_impar);
-//		printf("Media dos impares: %.2f\n", media_impar);
-//		printf("Quantidade de impares abaixo da media dos impares: %d", abaixo_media_impar);
-//	} else{
-//		printf("Nao ha valores impares para analise");
-//	}
+	int valores[TAM], par[TAM], impar[TAM];
+	int qtd_par = 0, qtd_impar = 0, i = 0;
+	int maior_par = 0, menor_par = 0;
+	int maior_impar = 0, menor_impar = 0;
+	int soma_par = 0, soma_impar = 0;
+	float media_par, media_impar;
+	char sair;
+	
+	printf("--------------------------------\n");
+	printf("    20   V  A  L  O  R  E  S    \n");
+	printf("--------------------------------\n");
+	
+	for(i = 0; i < TAM; i++){
+		valores[i] = 0;
+		par[i] = 0;
+		impar[i] = 0;
+	}
+	
+	i = 0;
+	do{
+		printf("Insira o valor %d: ",i+1);
+		scanf("%d",&valores[i]);
+		
+		if(i < TAM - 1){
+			fflush(stdin);
+			printf("Deseja sair? (S/N): ");
+			scanf("%c",&sair);
+			
+			if(sair == 'S' || sair == 's'){
+				i++;
+				break;
+			}	
+		}
+		
+		i++;
+	}while((sair == 'N' || sair == 'n') && i < TAM);
+	
+	int qtd_v = i;
+	for(i = 0; i < qtd_v; i++){
+		if(valores[i] % 2 == 0){
+			par[qtd_par] = valores[i];
+			soma_par += valores[i];
+			
+			if(qtd_par == 0){
+				maior_par = menor_par = valores[i];
+			} else{
+				if(valores[i] > maior_par){
+					maior_par = valores[i];
+				}
+				
+				if(valores[i] < menor_par){
+					menor_par = valores[i];
+				}
+			}
+			
+			qtd_par++;
+		} else{
+			impar[qtd_impar] = valores[i];
+			soma_impar += valores[i];
+			
+			if(qtd_impar == 0){
+				maior_impar = menor_impar = valores[i];
+			} else{
+				if(valores[i] > maior_impar){
+					maior_impar = valores[i];
+				}
+				
+				if(valores[i] < menor_impar){
+					menor_impar = valores[i];
+				}
+			}
+			
+			qtd_impar++;
+		}
+	}
+	
+	if(qtd_par > 0){
+		media_par = (float)soma_par / qtd_par;
+	}
+	
+	if(qtd_impar > 0){
+		media_impar = (float)soma_impar / qtd_impar;
+	}
+	
+	int acima_media_par = 0, abaixo_media_impar = 0;
+	
+	for(i = 0; i < qtd_par; i++){
+		if(par[i] > media_par){
+			acima_media_par++;
+		}
+	}
+	
+	for(i = 0; i < qtd_impar; i++){
+		if(impar[i] < media_impar){
+			abaixo_media_impar++;
+		}
+	}
+	
+	printf("--------------------------------\n");
+	
+	printf("Quantidade de pares: %d\n", qtd_par);
+	printf("Quantidade de impares: %d\n", qtd_impar);
+	
+	printf("--------------------------------\n");
+	
+	if(qtd_par > 0){
+		printf("Maior valor par: %d\n", maior_par);
+		printf("Menor valor par: %d\n", menor_par);
+		printf("Media dos pares: %.2f\n", media_par);
+		printf("Quantidade de pares acima da media dos pares: %d\n", acima_media_par);
+	} else{
+		printf("Nao ha valores pares para analise\n");
+	}
+	
+	printf("--------------------------------\n");
+	
+	if(qtd_impar > 0){
+		printf("Maior valor impar: %d\n", maior_impar);
+		printf("Menor valor impar: %d\n", menor_impar);
+		printf("Media dos impares: %.2f\n", media_impar);
+		printf("Quantidade de impares abaixo da media dos impares: %d", abaixo_media_impar);
+	} else{
+		printf("Nao ha valores impares para analise");
+	}
 	
 	return 0;
 }
