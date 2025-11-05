@@ -9,10 +9,12 @@ int le_valida_crudl(int n1);
 char le_valida_continuar(char continuar, int cont);
 int le_valida_atualizar(int opcao_crudl);
 int le_valida_alternativa(int i);
+void cabecalho();
 
 int main() {
 	int opcao = 0, opcao_7 = 0, qtd_cidade = 0, qtd_uf = 0, qtd_marca = 0, qtd_fornecedor = 0, qtd_produto = 0;
-	int opcao_crudl = 0, cont = 0, i = 0, maior_valor = 0;
+	int opcao_crudl = 0, cont = 0, i = 0;
+	float maior_valor;
 	char continuar, espaco, uf_valor;
 	
 	struct Uf{
@@ -54,8 +56,9 @@ int main() {
 	struct Produto produto[TAM] = {0};
 	
 	do{
+		cabecalho();
 		opcao = le_valida_opcao_menu(opcao);
-
+		
 		switch(opcao){
 			case 1:
 				opcao_crudl = le_valida_crudl(opcao_crudl);
@@ -940,7 +943,6 @@ int main() {
 
 int le_valida_opcao_menu(int n1){
 	int opcao = 0, cont = 0;
-	system("cls");
 	
 	do{
 		if(cont > 0){
@@ -1032,4 +1034,11 @@ int le_valida_alternativa(int i){
 		cont++;
 	}while(!(j >= 1 && j <= i));
 	return j;
+}
+
+void cabecalho(){
+	system("cls");
+	printf("--------------------------------\n");
+	printf("    E   S   T   O   Q   U   E   \n");
+	printf("--------------------------------\n");
 }
