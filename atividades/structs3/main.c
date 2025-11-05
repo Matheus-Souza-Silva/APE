@@ -2,6 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 #define TAM 5
+#define STR 30
 
 int le_valida_opcao_menu(int n1);
 int le_valida_opcao_7(int n1);
@@ -9,39 +10,42 @@ int le_valida_crudl(int n1);
 char le_valida_continuar(char continuar, int cont);
 int le_valida_atualizar(int opcao_crudl);
 int le_valida_alternativa(int i);
+int le_valida_sort();
+void bubbleSortAZ(char arr[][STR], int n);
+void bubbleSortZA(char arr[][STR], int n);
 void cabecalho();
 
 int main() {
-	int opcao = 0, opcao_7 = 0, qtd_cidade = 0, qtd_uf = 0, qtd_marca = 0, qtd_fornecedor = 0, qtd_produto = 0;
-	int opcao_crudl = 0, cont = 0, i = 0;
+	int opcao = 0, opcao_7 = 0, qtd_cidade = 0, qtd_uf = 0, qtd_marca = 0, qtd_fornecedor = 0, qtd_produto = 0, qtd_categoria = 0;
+	int opcao_crudl = 0, cont = 0, i = 0, sort = 0;
 	float maior_valor;
 	char continuar, espaco, uf_valor;
 	
 	struct Uf{
-		char nome[30];
+		char nome[STR];
 		char sigla[3];
 	};
 	
 	struct Cidade{
-		char nome[30];
+		char nome[STR];
 		struct Uf uf;
 	};
 	
 	struct Marca{
-		char nome[30];
+		char nome[STR];
 	};
 	
 	struct Fornecedor{
-		char nome[30];
+		char nome[STR];
 		struct Cidade cidade;
 	};
 	
 	struct Categoria{
-		char nome[30];
+		char nome[STR];
 	};
 	
 	struct Produto{
-		char nome[30];
+		char nome[STR];
 		float valor;
 		struct Marca marca;
 		struct Categoria categoria;
@@ -82,6 +86,7 @@ int main() {
 							}
 							
 							cont++;
+							qtd_categoria++;
 							continuar = le_valida_continuar(continuar, cont);
 							
 						} while(cont < TAM && continuar == 's');
@@ -120,6 +125,9 @@ int main() {
 							break;
 						} else{
 							system("cls");
+							if(categoria[opcao_crudl - 1].nome[0] == '\0'){
+								qtd_categoria++;
+							}
 							printf("Entre o novo Nome da Categoria (%s): ",categoria[opcao_crudl - 1].nome);
 							scanf(" %[^\n]s",&categoria[opcao_crudl - 1].nome);
 						}
@@ -153,12 +161,28 @@ int main() {
 							system("cls");
 							strcpy(categoria[opcao_crudl - 1].nome, "\0");
 							printf("Dado Excluido");
+							qtd_categoria--;
 							getch();
 						}
 					break;
 					
 					case 5:
-						
+						system("cls");
+						if(qtd_categoria == 0){
+							printf("Nao a nenhuma categoria criada para listar, crie uma categoria primeiro.");
+							getch();
+						} else{
+							sort = le_valida_sort();
+							
+							if(sort == 1){
+								for(i = 0; i < TAM; i++){
+									bubbleSortAZ(char categ[STR], int n);
+								}
+							} else{
+								bubbleSortZA(char arr[][STR], int n);
+							}
+							
+						}		
 					break;
 					
 					case 6:
@@ -1034,6 +1058,51 @@ int le_valida_alternativa(int i){
 		cont++;
 	}while(!(j >= 1 && j <= i));
 	return j;
+}
+
+void bubbleSortAZ(char arr[][STR], int n) {
+    int i, j;
+    char temp[STR];
+
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+            if (strcmp(arr[j], arr[j + 1]) > 0) {
+                strcpy(temp, arr[j]);
+                strcpy(arr[j], arr[j + 1]);
+                strcpy(arr[j + 1], temp);
+            }
+        }
+    }
+}
+
+void bubbleSortZA(char arr[][STR], int n) {
+    int i, j;
+    char temp[STR];
+
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+            if (strcmp(arr[j], arr[j + 1]) < 0) {
+                strcpy(temp, arr[j]);
+                strcpy(arr[j], arr[j + 1]);
+                strcpy(arr[j + 1], temp);
+            }
+        }
+    }
+}
+
+int le_valida_sort(){
+	int cont = 0, sort = 0;
+	do{
+		if(cont > 0){
+			system("cls");
+			printf("Entrada Invalida, tente novamente\n");
+		}
+		printf("Escolha uma das formas de listagem:\n(1) A - Z\n(2) Z - A\n");
+		printf("Entrada: ");
+		scanf("%d",&sort);
+		cont++;
+	} while(sort != 1 && sort != 2);
+	return sort;
 }
 
 void cabecalho(){
